@@ -1,9 +1,9 @@
 
-import React, { Component } from 'react'
+import React  from 'react'
 
-class Fruits extends Component{
-  render(){
-    const { fruits} = this.props;
+const Fruits=(props)=>{
+  
+    const { fruits} = props;
     const fruitsList = fruits.map((fruit,index) => {
       return (
         <div className="fruits-list" key={index}>
@@ -19,6 +19,6 @@ class Fruits extends Component{
       </div>
     )
   }
-}
+
 
 export default Fruits
