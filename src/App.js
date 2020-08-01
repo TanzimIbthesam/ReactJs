@@ -20,7 +20,7 @@ import Greet from './Greet'
 class App extends Component{
   render(){
     return(
-      <Greet />
+      <Greet name="Tanzim" profession="Web developer" />
     )
   }
 }

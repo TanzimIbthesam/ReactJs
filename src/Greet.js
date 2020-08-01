@@ -1,18 +1,39 @@
+// import React, { Component }  from 'react'
 import React, { Component }  from 'react'
-// import React, { Component } from 'react'
 
-// function Greetings(){
-//   return(
-//         <h1>New greetings</h1>
+//props
+// const Greet=props=>{
+//     this.state({
+//         message:'Hello World'
+//     })
+//     return(
+     
 //     )
 // }
-//class component
 class Greet extends Component{
-    render() {
-            return(
-        <h1>New greetings</h1>
-    )
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             message:'Subscription is open'
+        }
     }
+    subscribeMessage(){
+      this.setState({
+          message:'You are subscribed'
+      })
+    }
+    render(){
+     
+        return(
+               <div>
+           <h1>{this.props.name} is my name and profession is {this.props.profession}</h1>
+        <p>{this.state.message}</p>
+        <button onClick={()=>this.subscribeMessage()}>Subscribe To us</button>
+   
+        </div>
 
+        )
+    }
 }
 export default Greet;
