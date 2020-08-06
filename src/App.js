@@ -4,7 +4,7 @@ import React, { Component }  from 'react'
 // import React, {
 //   Component
 // } from 'react'
-// import Greet from './Greet'
+import Greet from './Greet'
 import Counter from './Counter'
 //functional components 
 
@@ -21,8 +21,13 @@ import Counter from './Counter'
 class App extends Component{
   render(){
     return(
-      // <Greet name="Tanzim" profession="Web developer" />
-      <Counter />
+      <div>
+             < Greet name = "Tanzim"
+             profession = "Web developer" / >
+               <Counter />
+      </div>
+    
+      
     )
   }
 }

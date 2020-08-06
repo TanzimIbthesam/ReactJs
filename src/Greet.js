@@ -1,16 +1,25 @@
-// import React, { Component }  from 'react'
 import React, { Component }  from 'react'
+// import React  from 'react'
 
 //props
+//2 ways to destructure props in functional components
+//1st way
 // const Greet=props=>{
-//     this.state({
-//         message:'Hello World'
-//     })
-//     return(
-     
+//     const {name,profession}=props;
+//   return(
+//      <div>The name is {name} and profession is {profession} </div>
 //     )
 // }
+//2nd way
+// const Greet=({name,profession})=>{
+  
+//   return(
+//      <div>The name is {name} and profession is {profession} </div>
+//     )
+// }
+//2 ways of destructuring props in Class components 
 class Greet extends Component{
+    
     constructor(props) {
         super(props)
     
@@ -24,12 +33,18 @@ class Greet extends Component{
       })
     }
     render(){
-     
+        const {message}=this.state
+     const {
+         name,
+         profession
+     } = this.props
+  
         return(
                <div>
-           <h1>{this.props.name} is my name and profession is {this.props.profession}</h1>
-        <p>{this.state.message}</p>
-        <button onClick={()=>this.subscribeMessage()}>Subscribe To us</button>
+           <h1>{name} is my name and profession is {profession}</h1>
+        <p>{message}</p>
+     
+       
    
         </div>
 
