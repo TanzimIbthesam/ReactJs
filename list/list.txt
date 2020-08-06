@@ -1,0 +1,5 @@
+1.ClassComponent
+2.Functional component
+3.Props 
+4.State
+5.setState

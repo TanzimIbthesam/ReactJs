@@ -4,7 +4,8 @@ import React, { Component }  from 'react'
 // import React, {
 //   Component
 // } from 'react'
-import Greet from './Greet'
+// import Greet from './Greet'
+import Counter from './Counter'
 //functional components 
 
 // function App(){
@@ -20,7 +21,8 @@ import Greet from './Greet'
 class App extends Component{
   render(){
     return(
-      <Greet name="Tanzim" profession="Web developer" />
+      // <Greet name="Tanzim" profession="Web developer" />
+      <Counter />
     )
   }
 }
