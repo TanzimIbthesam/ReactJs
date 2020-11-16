@@ -1,57 +1,44 @@
 
-import React  from 'react';
+import React,{useState}  from 'react';
+//if you dont want to prefix the React. we can prefix the useState
 import Images from  './components/Images';
 
 
 
 
-class App extends React.Component{
-
-constructor(props) {
-
-  console.log("App Constructor");
-  super(props)
-
- this.state={
-   title:'New Image',
-   isShowing:false,
- }
-
+function App(){
+  //  const [isShowing, setIsShowing] = React.useState(false);
+  const [title, setTitle] =useState("Hello World");
+   const [isShowing, setIsShowing] =useState(false);
  
+  function toggleButton(){
+    setIsShowing(!isShowing);
+  // this.setState({isShowing:!this.state.isShowing});
 }
+  //useState in array there are 2 values 
+  //1.set state 
+  //2.Update value of the state 
+  //if we have 2 state we can also define it 
 
 
 
 
 
-
-toggleButton=()=>{
-  this.setState({isShowing:!this.state.isShowing});
-}
-
-componentDidMount (){
-  console.log("Component did Mount");
-  // this.setState({title:'Title changed'});
-}
-componentDidUpdate(){
-  console.log("Component Updated");
-}
-  render() {
      console.log("App render");
 
  
     //state is react are immutable
     return(
-       
+    
       <section className="flex justify-center items-center">
       
             <div className="w-1/2">
               <div className="my-4 text-center">
-                          <p className="text-2xl">{ this.state.title}</p> 
+                          <p className="text-2xl">{ title}</p> 
                    
                           <button 
                           className="bg-blue-800 text-white px-6 py-4 rounded-xl"
-                          onClick={this.toggleButton}
+                          onClick={toggleButton}
                           alt="Toggle Image"
                           >Toggle Image</button>
                           <div>
@@ -60,26 +47,15 @@ componentDidUpdate(){
            
               </div>
                  {
-                this.state.isShowing  ? (
+                isShowing  ? (
                   <Images/>
              ):null
              }
-                 
-          
-      
-                 
-             
-            
- 
-        </div>
-        
-       
-        
-   
-      </section>
+                 </div>
+        </section>
     )
     
   }
-}
+
 
  export default App;
