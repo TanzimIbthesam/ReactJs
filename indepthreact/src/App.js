@@ -1,5 +1,5 @@
 
-import React,{useState}  from 'react';
+import React,{useEffect, useState}  from 'react';
 //if you dont want to prefix the React. we can prefix the useState
 import Images from  './components/Images';
 
@@ -7,10 +7,13 @@ import Images from  './components/Images';
 
 
 function App(){
+  console.log("Function started");
   //  const [isShowing, setIsShowing] = React.useState(false);
   const [title, setTitle] =useState("Hello World");
    const [isShowing, setIsShowing] =useState(false);
- 
+ useEffect(()=>{
+   console.log("App Mounted");
+ },[]);
   function toggleButton(){
     setIsShowing(!isShowing);
   // this.setState({isShowing:!this.state.isShowing});
@@ -24,13 +27,14 @@ function App(){
 
 
 
-     console.log("App render");
+
 
  
     //state is react are immutable
     return(
-    
+            
       <section className="flex justify-center items-center">
+        {console.log("Returned")}
       
             <div className="w-1/2">
               <div className="my-4 text-center">
