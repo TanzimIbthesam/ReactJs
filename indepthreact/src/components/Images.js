@@ -41,7 +41,7 @@ function addToImage(){
     }, [])
     return (
         <div className="w-full ">
-                 <div className="flex flex-wrap w-4/5 justify-center ">
+                 <div className="flex flex-wrap  justify-center ">
             <ShowImage />
              
              </div>
