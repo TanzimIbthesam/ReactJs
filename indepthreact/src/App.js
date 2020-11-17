@@ -67,7 +67,7 @@ function inputChange(e){
                           >Toggle Image</button><br/>
                         
                           <Counter />
-                          <input onChange={()=>inputChange}  type="text" className="px-4 py-1 rounded-3xl border mt-1"/> 
+                          <input onChange={inputChange}  type="text" className="px-4 py-1 rounded-3xl border mt-1"/> 
                           <br></br>
                         <p className="text-2xl">Name-{name}</p> 
 
