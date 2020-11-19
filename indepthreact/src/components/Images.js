@@ -9,7 +9,9 @@ export default function Images() {
       
         
 
-    ])
+    ]);
+
+ const [showImageUrl, setImageUrl] = useState();
     
   
   function ShowImage(){
@@ -21,13 +23,18 @@ export default function Images() {
                )
   });
 }
+function inputChange(e) {
+    setImageUrl(e.target.value);
+    
+}
 function addToImage(){
     setImage([
-        ...images,
-        " https://images.unsplash.com/photo-1605472878930-13165e518b18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+  showImageUrl, ...images
+        
 
     ]
     )
+    setImageUrl("")
 }
     useEffect(() => {
         const interval=setInterval(() => {
@@ -48,7 +55,12 @@ function addToImage(){
             <div className="flex justify-center mt-4">
                 <input 
                 type="text" 
-                class="px-4 py-1 border ml-2" />
+                class="px-4 py-1 border ml-2" 
+                value={showImageUrl}
+                onChange={inputChange}
+                 
+                
+                />
                 <button onClick={addToImage} className="px-4 py-1 bg-indigo-400 text-white border rounded-xl font-serif ">Enter Link</button>
                </div>
               
