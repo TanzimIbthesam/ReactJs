@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React,{useState,useEffect} from 'react'
+import SingleImage from './singleimage';
 
 export default function Images() {
     const [images, setImage] = useState([
@@ -15,19 +16,19 @@ export default function Images() {
   
 
  const [showImageUrl, setImageUrl] = useState("");
-   const [isHovering, setisHovering] = useState(-1);
+//    const [isHovering, setisHovering] = useState(-1);
     
   function removeImage(index) {
-    setImage(images.filter((image,i)=>i !==index));
-   console.log("clciked");
+    // setImage(images.filter((image,i)=>i !==index));
+   
 
    
-    //    setImage([
-    //         ...images.slice(0,index),
-    //         ...images.slice(index+1,images.length)
+       setImage([
+            ...images.slice(0,index),
+            ...images.slice(index+1,images.length)
           
            
-    //    ])
+       ])
    
 
    
@@ -38,32 +39,7 @@ export default function Images() {
 
 
   function ShowImage(){
- return   images.map((image,index) => {
-               return(
-                   <div className="relative">
-                      <div 
-                    onMouseEnter={()=>setisHovering(index)} 
-                    onMouseLeave={()=>setisHovering(-1)}
-                   key={index}>
-                               <i 
-                               className={`
-                               fas fa-trash-alt absolute ml-56 cursor-pointer opacity-50 hover:opacity-100 text-2xl   ${
-                            isHovering ===index ? "" : "hidden"
-         
-    }` }
-     onClick={()=>removeImage(index)}
-    ></i>
-                            <img 
-                            src={image} width="150" className="w-64 h-64" alt="NewImage"  
-                        
-                            
-                            />
-                         
-                   </div>
-                   </div>
-                 
-               )
-  });
+ return   images.map((img,index) => <SingleImage image={img} removeImage={removeImage} index={index} />)
 }
 function inputChange(e) {
     setImageUrl(e.target.value);
