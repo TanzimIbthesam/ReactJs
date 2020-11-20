@@ -11,14 +11,37 @@ export default function Images() {
 
     ]);
 
- const [showImageUrl, setImageUrl] = useState();
+ const [showImageUrl, setImageUrl] = useState("");
     
-  
+  function removeImage(index) {
+    // setImage(images.filter((image,i)=>i !==index));
+   
+    //    setImage([
+    //         ...images.slice(0,index),
+    //         ...images.slice(index+1,images.length)
+           
+    //    ])
+   
+       setImage([
+            ...images.slice(0,index),
+            ...images.slice(index+1,images.length)
+          
+           
+       ])
+   
+
+   
+
+     
+   
+ }
   function ShowImage(){
- return   images.map(image => {
+ return   images.map((image,index) => {
                return(
-                   <div>
-                            <img src={image} width="150" />
+                   <div key={index}>
+                               <i className="fas fa-trash-alt absolute ml-56 cursor-pointer"></i>
+                            <img onClick={()=>{removeImage(index)}} src={image} width="150" className="w-64 h-64" alt="NewImage"  />
+                         
                    </div>
                )
   });
@@ -28,13 +51,16 @@ function inputChange(e) {
     
 }
 function addToImage(){
-    setImage([
-  showImageUrl, ...images
-        
+ if(showImageUrl !== ""){
+            setImage([showImageUrl, ...images]);
+         setImageUrl("");
 
-    ]
-    )
-    setImageUrl("")
+ }
+     
+ 
+    
+
+   
 }
     useEffect(() => {
         const interval=setInterval(() => {
@@ -48,20 +74,29 @@ function addToImage(){
     }, [])
     return (
         <div className="w-full ">
-                 <div className="flex flex-wrap  justify-center ">
+                 <div className="flex flex-wrap  justify-around">
             <ShowImage />
              
              </div>
             <div className="flex justify-center mt-4">
                 <input 
                 type="text" 
-                class="px-4 py-1 border ml-2" 
+                className="px-4 py-1 border ml-2" 
                 value={showImageUrl}
                 onChange={inputChange}
                  
                 
                 />
-                <button onClick={addToImage} className="px-4 py-1 bg-indigo-400 text-white border rounded-xl font-serif ">Enter Link</button>
+                <button 
+               
+            
+                 disabled={showImageUrl=== ""}
+            className={`px-4 py-1 text-white ml-2 ${
+             showImageUrl !== "" ? "bg-indigo-600" : "bg-indigo-300"
+            }`}
+                 onClick={addToImage} 
+                >
+                    Enter Link</button>
                </div>
               
         </div>

@@ -2,7 +2,7 @@
 import React,{useEffect, useRef, useState}  from 'react';
 //if you dont want to prefix the React. we can prefix the useState
 import Images from  './components/Images';
-import Counter from './components/Counter';
+
 
 
 
@@ -13,7 +13,7 @@ function App(){
 
   const [title] =useState("Hello World");
    const [isShowing, setIsShowing] =useState(false);
-   const [name, setName] = useState("Tanzim");
+
   
  useEffect(()=>{
    console.log("App Mounted");
@@ -21,10 +21,6 @@ function App(){
   function toggleButton(){
     setIsShowing(!isShowing);
   // this.setState({isShowing:!this.state.isShowing});
-}
-function inputChange(e){
- setName(e.target.value);
-
 }
 
  
@@ -55,7 +51,7 @@ function inputChange(e){
       <section className="flex justify-center items-center">
         {console.log("Returned")}
       
-            <div className="w-1/2">
+            <div className="w-11/12">
               <div className="my-4 text-center">
                           <p className="text-2xl">{ title}</p> 
                       
@@ -65,11 +61,7 @@ function inputChange(e){
                           onClick={toggleButton}
                           alt="Toggle Image"
                           >Toggle Image</button><br/>
-                        
-                          <Counter />
-                          <input onChange={inputChange}  type="text" className="px-4 py-1 rounded-3xl border mt-1"/> 
-                          <br></br>
-                        <p className="text-2xl">Name-{name}</p> 
+                     
 
                           <div>
                            
