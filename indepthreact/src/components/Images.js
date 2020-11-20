@@ -10,24 +10,24 @@ export default function Images() {
         
 
     ]);
+    
+    // const [isHovering, setisHovering] = useState(false);
+  
 
  const [showImageUrl, setImageUrl] = useState("");
+   const [isHovering, setisHovering] = useState(-1);
     
   function removeImage(index) {
-    // setImage(images.filter((image,i)=>i !==index));
+    setImage(images.filter((image,i)=>i !==index));
+   console.log("clciked");
+
    
     //    setImage([
     //         ...images.slice(0,index),
     //         ...images.slice(index+1,images.length)
-           
-    //    ])
-   
-       setImage([
-            ...images.slice(0,index),
-            ...images.slice(index+1,images.length)
           
            
-       ])
+    //    ])
    
 
    
@@ -35,14 +35,33 @@ export default function Images() {
      
    
  }
+
+
   function ShowImage(){
  return   images.map((image,index) => {
                return(
-                   <div key={index}>
-                               <i className="fas fa-trash-alt absolute ml-56 cursor-pointer"></i>
-                            <img onClick={()=>{removeImage(index)}} src={image} width="150" className="w-64 h-64" alt="NewImage"  />
+                   <div className="relative">
+                      <div 
+                    onMouseEnter={()=>setisHovering(index)} 
+                    onMouseLeave={()=>setisHovering(-1)}
+                   key={index}>
+                               <i 
+                               className={`
+                               fas fa-trash-alt absolute ml-56 cursor-pointer opacity-50 hover:opacity-100 text-2xl   ${
+                            isHovering ===index ? "" : "hidden"
+         
+    }` }
+     onClick={()=>removeImage(index)}
+    ></i>
+                            <img 
+                            src={image} width="150" className="w-64 h-64" alt="NewImage"  
+                        
+                            
+                            />
                          
                    </div>
+                   </div>
+                 
                )
   });
 }
