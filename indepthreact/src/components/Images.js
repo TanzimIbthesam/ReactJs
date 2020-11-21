@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useRef} from 'react'
 import SingleImage from './singleimage';
 
 export default function Images() {
@@ -12,14 +12,17 @@ export default function Images() {
 
     ]);
     
-    // const [isHovering, setisHovering] = useState(false);
+
   
 
  const [showImageUrl, setImageUrl] = useState("");
-//    const [isHovering, setisHovering] = useState(-1);
+
+ const inputRef= useRef(true);
+ const varRef=useRef(images.length);
+ const [updateCount, setupdateCount] = useState(0)
     
   function removeImage(index) {
-    // setImage(images.filter((image,i)=>i !==index));
+
    
 
    
@@ -31,14 +34,8 @@ export default function Images() {
        ])
    
 
-   
-
-     
-   
- }
-
-
-  function ShowImage(){
+}
+function ShowImage(){
  return   images.map((img,index) => <SingleImage image={img} removeImage={removeImage} index={index} />)
 }
 function inputChange(e) {
@@ -58,27 +55,33 @@ function addToImage(){
    
 }
     useEffect(() => {
-        const interval=setInterval(() => {
-         console.log("Hello");   
-        }, 1000);
-        
-        return () => {
-            console.log("Unmounted");
-            clearInterval(interval);
-        }
+
+  inputRef.current.focus();
+  console.log(varRef);
+  
     }, [])
+    useEffect(() => {
+
+varRef.current=varRef.current+1;
+  
+    },)
     return (
+        
         <div className="w-full ">
+            <h1 className="text-2xl text-center pb-8">Images update count is-{varRef.current}</h1>
                  <div className="flex flex-wrap  justify-around">
+    
             <ShowImage />
              
              </div>
             <div className="flex justify-center mt-4">
                 <input 
+                id="inputBox"
                 type="text" 
                 className="px-4 py-1 border ml-2" 
                 value={showImageUrl}
                 onChange={inputChange}
+                ref={inputRef}
                  
                 
                 />

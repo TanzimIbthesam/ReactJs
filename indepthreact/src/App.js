@@ -1,6 +1,6 @@
 
-import React,{useEffect, useRef, useState}  from 'react';
-//if you dont want to prefix the React. we can prefix the useState
+import React,{useEffect, useState}  from 'react';
+
 import Images from  './components/Images';
 
 
@@ -15,28 +15,18 @@ function App(){
    const [isShowing, setIsShowing] =useState(false);
 
   
- useEffect(()=>{
-   console.log("App Mounted");
- },[]);
+
   function toggleButton(){
     setIsShowing(!isShowing);
-  // this.setState({isShowing:!this.state.isShowing});
+ 
 }
 
  
 
-  //useState in array there are 2 values 
-  //1.set state 
-  //2.Update value of the state 
-  //if we have 2 state we can also define it 
-  const mountref = useRef(false);
+
   useEffect(() => {
-   if(mountref.current){
-     console.log("App updated");
-   }else{
-     mountref.current=true;
-   }
-  }, [isShowing]);
+   
+  }, []);
 
 
 
@@ -45,7 +35,7 @@ function App(){
 
 
  
-    //state is react are immutable
+
     return(
             
       <section className="flex justify-center items-center">
