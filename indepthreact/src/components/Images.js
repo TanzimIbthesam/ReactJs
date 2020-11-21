@@ -24,6 +24,7 @@ export default function Images() {
  
     
   function removeImage(index) {
+      
 
    
 
