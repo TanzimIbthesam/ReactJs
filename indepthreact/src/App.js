@@ -12,14 +12,7 @@ function App(){
   console.log("Function started");
 
   const [title] =useState("Hello World");
-   const [isShowing, setIsShowing] =useState(false);
 
-  
-
-  function toggleButton(){
-    setIsShowing(!isShowing);
- 
-}
 
  
 
@@ -45,24 +38,14 @@ function App(){
               <div className="my-4 text-center">
                           <p className="text-2xl">{ title}</p> 
                       
-                   
-                          <button 
-                          className="bg-blue-800 text-white px-6 py-4 rounded-xl"
-                          onClick={toggleButton}
-                          alt="Toggle Image"
-                          >Toggle Image</button><br/>
-                     
+
 
                           <div>
                            
                           </div>
            
               </div>
-                 {
-                isShowing  ? (
-                  <Images/>
-             ):null
-             }
+            <Images />
                  </div>
         </section>
     )

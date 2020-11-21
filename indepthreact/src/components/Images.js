@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useRef} from 'react'
+import React,{useState,useEffect,useRef, useLayoutEffect} from 'react'
 import SingleImage from './singleimage';
 
 export default function Images() {
@@ -17,9 +17,11 @@ export default function Images() {
 
  const [showImageUrl, setImageUrl] = useState("");
 
+ const [name, setName] = useState("Tanzim")
+
  const inputRef= useRef(true);
  const varRef=useRef(images.length);
- const [updateCount, setupdateCount] = useState(0)
+ 
     
   function removeImage(index) {
 
@@ -54,20 +56,22 @@ function addToImage(){
 
    
 }
-    useEffect(() => {
-
-  inputRef.current.focus();
-  console.log(varRef);
   
-    }, [])
     useEffect(() => {
-
+         console.log("Use Effect 2");
+         setName("Tanzim Ib");
+ inputRef.current.focus();
 varRef.current=varRef.current+1;
   
     },)
+    useLayoutEffect(() => {
+      console.log("use Layout effect");
+    })
     return (
         
         <div className="w-full ">
+            {console.log("It is Jsx")}
+           {name}
             <h1 className="text-2xl text-center pb-8">Images update count is-{varRef.current}</h1>
                  <div className="flex flex-wrap  justify-around">
     
