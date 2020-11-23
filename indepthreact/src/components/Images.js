@@ -1,10 +1,12 @@
-import Axios from 'axios';
+// import Axios from 'axios';
 import React,{useState,useEffect,useRef} from 'react'
 import SingleImage from './singleimage';
 import useScroll from '../utilis/useScroll'
+import useFetchImage from '../utilis/useFetchImage';
 
 export default function Images() {
-    const [images, setImage] = useState([]);
+    // const [images, setImage] = useState([]);
+   const [images,setImage]=useFetchImage();
     const scrollPosition=useScroll();
 
   
@@ -57,12 +59,12 @@ function addToImage(){
   
     useEffect(() => {
        
-        console.log(process.env);
+      
  
- Axios.get(
-     `${process.env.REACT_APP_UNSPLASH_URL}?client_id=${process.env.REACT_APP_UNSPLASH_KEY}`
-     )
- .then(response=>setImage(response.data))
+//  Axios.get(
+//      `${process.env.REACT_APP_UNSPLASH_URL}?client_id=${process.env.REACT_APP_UNSPLASH_KEY}`
+//      )
+//  .then(response=>setImage(response.data))
 
   
     },[])
