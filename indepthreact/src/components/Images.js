@@ -1,10 +1,11 @@
 import Axios from 'axios';
 import React,{useState,useEffect,useRef} from 'react'
 import SingleImage from './singleimage';
+import useScroll from '../utilis/useScroll'
 
 export default function Images() {
     const [images, setImage] = useState([]);
-    
+    const scrollPosition=useScroll();
 
   
 
@@ -56,9 +57,11 @@ function addToImage(){
   
     useEffect(() => {
        
-        
+        console.log(process.env);
  
- Axios.get('https://api.unsplash.com/photos/?client_id=DhL1FCLxzPFgPJlkf0QtDmyP0-S2jbkHeLFC4KKz1vY')
+ Axios.get(
+     `${process.env.REACT_APP_UNSPLASH_URL}?client_id=${process.env.REACT_APP_UNSPLASH_KEY}`
+     )
  .then(response=>setImage(response.data))
 
   
@@ -67,7 +70,7 @@ function addToImage(){
     return (
         
         <div className="w-full ">
-            
+            {scrollPosition}
          
            
                  <div className="flex flex-wrap  justify-around">
