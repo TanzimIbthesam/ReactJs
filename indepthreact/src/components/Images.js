@@ -1,26 +1,19 @@
-import React,{useState,useEffect,useRef, useLayoutEffect} from 'react'
+import Axios from 'axios';
+import React,{useState,useEffect,useRef} from 'react'
 import SingleImage from './singleimage';
 
 export default function Images() {
-    const [images, setImage] = useState([
-          "https://images.unsplash.com/photo-1605447302541-bd14aa1417ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-          "https://images.unsplash.com/photo-1605580556856-db8fae94b658?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-          "https://images.unsplash.com/photo-1605555649847-b19b05bd048f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-          " https://images.unsplash.com/photo-1605536350737-421082456b80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-      
-        
-
-    ]);
+    const [images, setImage] = useState([]);
     
 
   
 
  const [showImageUrl, setImageUrl] = useState("");
 
- const [name, setName] = useState("Tanzim")
+
 
  const inputRef= useRef(true);
- const varRef=useRef(images.length);
+
  
     
   function removeImage(index) {
@@ -39,7 +32,10 @@ export default function Images() {
 
 }
 function ShowImage(){
- return   images.map((img,index) => <SingleImage image={img} removeImage={removeImage} index={index} />)
+ return   images.map((img,index) => <SingleImage image={img} removeImage={removeImage} index={index} 
+ key={index}
+ 
+ />)
 }
 function inputChange(e) {
     setImageUrl(e.target.value);
@@ -59,21 +55,21 @@ function addToImage(){
 }
   
     useEffect(() => {
-         console.log("Use Effect 2");
-         setName("Tanzim Ib");
- inputRef.current.focus();
-varRef.current=varRef.current+1;
+       
+        
+ 
+ Axios.get('https://api.unsplash.com/photos/?client_id=DhL1FCLxzPFgPJlkf0QtDmyP0-S2jbkHeLFC4KKz1vY')
+ .then(response=>setImage(response.data))
+
   
-    },)
-    useLayoutEffect(() => {
-      console.log("use Layout effect");
-    })
+    },[])
+
     return (
         
         <div className="w-full ">
-            {console.log("It is Jsx")}
-           {name}
-            <h1 className="text-2xl text-center pb-8">Images update count is-{varRef.current}</h1>
+            
+         
+           
                  <div className="flex flex-wrap  justify-around">
     
             <ShowImage />
