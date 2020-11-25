@@ -1,12 +1,14 @@
-import React, { useState } from "react"; 
+import React, { useState,useEffect } from "react"; 
+
 export default function SingleImage({index,image,removeImage}) {
     const [isHovering, setisHovering] = useState(false);
+ 
     
 
     
     
     return (
-        <div className="">
+        <div className="w-1/3 flex justify-center p-1">
             <div className="relative">
                       <div 
                     onMouseEnter={()=>setisHovering(index)} 
@@ -18,7 +20,7 @@ export default function SingleImage({index,image,removeImage}) {
                             isHovering ===index ? "" : "hidden"
                              }` } onClick={()=>removeImage(index)}
                              ></i>
-                            <img src={image.urls.full} width="150" className="w-64 h-64" alt="NewImage"  />
+                            <img src={image.urls.full} width="100%" height="auto" className="" alt="NewImage"  />
                          
                    </div>
                    </div>

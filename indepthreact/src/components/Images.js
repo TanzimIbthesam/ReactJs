@@ -1,22 +1,20 @@
 // import Axios from 'axios';
-import React,{useState,useRef} from 'react'
+import React,{useState} from 'react'
 import SingleImage from './singleimage';
-import useScroll from '../utilis/useScroll'
+
 import useFetchImage from '../utilis/useFetchImage';
 import Loading from './Loading';
+
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 export default function Images() {
   const [page, setPage] = useState(1);
    const [images,setImage,errors,loading]=useFetchImage(page);
-    const scrollPosition=useScroll();
-
-  
-
- const [showImageUrl, setImageUrl] = useState("");
+ 
 
 
 
- const inputRef= useRef(true);
+
 
  
     
@@ -36,34 +34,38 @@ export default function Images() {
 
 }
 function ShowImage(){
- return   images.map((img,index) => <SingleImage image={img} removeImage={removeImage} index={index} 
+ return (
+      <InfiniteScroll 
+      dataLength={images.length}
+      next={()=>setPage(page+1)}
+      hasMore={true}
+      className="flex flex-wrap "
+      >
+      { images.map((img,index) =>(
+  <SingleImage image={img}
+   removeImage={removeImage} 
+   index={index} 
  key={index}
  
- />)
+ />
+ ))};
+      </InfiniteScroll>
+ ) 
 }
-function inputChange(e) {
-    setImageUrl(e.target.value);
-    
-}
-function addToImage(){
- if(showImageUrl !== ""){
-            setImage([showImageUrl, ...images]);
-         setImageUrl("");
 
- }
      
  
     
 
    
-}
+// }
   
 
-if (loading) return <Loading />
+
     return (
         <div>
         <div className=" ">
-            {scrollPosition}
+        
           
                 
                  {
@@ -79,46 +81,19 @@ if (loading) return <Loading />
            
          
            
-                 <div className="flex flex-wrap  justify-around ">
+                 <div className=" ">
     
             <ShowImage />
+            {
+                loading && <Loading />
+            }
+           
              
              </div>
-             {
-                  errors.length>0 ? null : (
-                          <button onClick={()=>{setPage(page+1)}}>Load More</button>
-         
-                  )
-             }
+           
             
         </div>
-          {
-                  errors.length>0 ? null : (
-                              <div className="flex justify-center mt-4">
-                <input 
-                id="inputBox"
-                type="text" 
-                className="px-4 py-1 border ml-2" 
-                value={showImageUrl}
-                onChange={inputChange}
-                ref={inputRef}
-                 
-                
-                />
-                <button 
-               
-            
-                 disabled={showImageUrl=== ""}
-            className={`px-4 py-1 text-white ml-2 ${
-             showImageUrl !== "" ? "bg-indigo-600" : "bg-indigo-300"
-            }`}
-                 onClick={addToImage} 
-                >
-                    Enter Link</button>
-               </div>
-         
-                  )
-             }
+       
      
               </div>
      

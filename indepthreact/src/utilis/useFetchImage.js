@@ -13,9 +13,9 @@ export default function useFetchImage(page) {
       
  useEffect(() => {
          setLoading(true);
-       const url=process.env.REACT_APP_UNSPLASH_URL;
+       const url=process.env.REACT_APP_UNSPLASH_URL_API;
        const secretkey=process.env.REACT_APP_UNSPLASH_KEY;
-    Axios.get( `${url}?clients_id=${secretkey}&page=${page}` )
+    Axios.get( `${url}?client_id=${secretkey}&page=${page}` )
  .then(response=>{
        setImage([...images,...response.data]);
       setLoading(false);
