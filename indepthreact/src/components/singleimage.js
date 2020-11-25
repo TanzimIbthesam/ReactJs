@@ -6,7 +6,7 @@ export default function SingleImage({index,image,removeImage}) {
     
     
     return (
-        <div>
+        <div className="">
             <div className="relative">
                       <div 
                     onMouseEnter={()=>setisHovering(index)} 

@@ -1,12 +1,12 @@
 // import Axios from 'axios';
-import React,{useState,useEffect,useRef} from 'react'
+import React,{useState,useRef} from 'react'
 import SingleImage from './singleimage';
 import useScroll from '../utilis/useScroll'
 import useFetchImage from '../utilis/useFetchImage';
 
 export default function Images() {
-    // const [images, setImage] = useState([]);
-   const [images,setImage]=useFetchImage();
+  const [page, setPage] = useState(1);
+   const [images,setImage,errors]=useFetchImage(page);
     const scrollPosition=useScroll();
 
   
@@ -57,30 +57,43 @@ function addToImage(){
    
 }
   
-    useEffect(() => {
-       
-      
- 
-//  Axios.get(
-//      `${process.env.REACT_APP_UNSPLASH_URL}?client_id=${process.env.REACT_APP_UNSPLASH_KEY}`
-//      )
-//  .then(response=>setImage(response.data))
 
-  
-    },[])
 
     return (
-        
-        <div className="w-full ">
+        <div>
+        <div className=" ">
             {scrollPosition}
+          
+                
+                 {
+                  errors.length>0 && (
+                       <div className="flex h-screen">
+                          <p class="text-red-400 font-mono text-center m-auto text-2xl"> {errors[0]}</p>   
+                       </div>
+                    
+         
+                  )
+             }
          
            
-                 <div className="flex flex-wrap  justify-around">
+         
+           
+                 <div className="flex flex-wrap  justify-around ">
     
             <ShowImage />
              
              </div>
-            <div className="flex justify-center mt-4">
+             {
+                  errors.length>0 ? null : (
+                          <button onClick={()=>{setPage(page+1)}}>Load More</button>
+         
+                  )
+             }
+            
+        </div>
+          {
+                  errors.length>0 ? null : (
+                              <div className="flex justify-center mt-4">
                 <input 
                 id="inputBox"
                 type="text" 
@@ -102,8 +115,11 @@ function addToImage(){
                 >
                     Enter Link</button>
                </div>
-              
-        </div>
+         
+                  )
+             }
+     
+              </div>
      
         
 
