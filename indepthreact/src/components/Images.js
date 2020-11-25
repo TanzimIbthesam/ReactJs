@@ -3,10 +3,11 @@ import React,{useState,useRef} from 'react'
 import SingleImage from './singleimage';
 import useScroll from '../utilis/useScroll'
 import useFetchImage from '../utilis/useFetchImage';
+import Loading from './Loading';
 
 export default function Images() {
   const [page, setPage] = useState(1);
-   const [images,setImage,errors]=useFetchImage(page);
+   const [images,setImage,errors,loading]=useFetchImage(page);
     const scrollPosition=useScroll();
 
   
@@ -58,7 +59,7 @@ function addToImage(){
 }
   
 
-
+if (loading) return <Loading />
     return (
         <div>
         <div className=" ">
@@ -66,13 +67,13 @@ function addToImage(){
           
                 
                  {
-                  errors.length>0 && (
+                  errors.length>0 ? (
                        <div className="flex h-screen">
                           <p class="text-red-400 font-mono text-center m-auto text-2xl"> {errors[0]}</p>   
                        </div>
                     
          
-                  )
+                  ):null
              }
          
            
