@@ -6,10 +6,13 @@ import useFetchImage from '../utilis/useFetchImage';
 import Loading from './Loading';
 
 import InfiniteScroll from 'react-infinite-scroll-component';
+import useDebounce from '../utilis/useDebounce';
 
 export default function Images() {
   const [page, setPage] = useState(1);
   const [searchTerm, setSearch] = useState(null);
+
+//   const [typetimeout,setTypeTimeout] = useState("");
    const [images,setImage,errors,loading]=useFetchImage(
         page,
         searchTerm
@@ -50,7 +53,7 @@ function ShowImage(){
  {images.map((img, index) => (
           <SingleImage
             image={img.urls.regular}
-            handleRemove={removeImage}
+            removeImage={removeImage}
             index={index}
             key={index}
           />
@@ -58,12 +61,10 @@ function ShowImage(){
       </InfiniteScroll>
  ) 
 }
-
+const debounce=useDebounce();
 function handleInput(e) {
      const text=e.target.value;
-     setTimeout(() => {
-          setSearch(text);
-     }, 1000);
+    debounce(()=>setSearch(text));
     
 }
      
