@@ -12,6 +12,7 @@ export default function useFetchImage(page,searchTerm) {
        const [errors, setErrors] = useState([]);
        const [loading, setLoading] = useState(false);
        
+       
  
  useEffect(() => {
          setLoading(true);

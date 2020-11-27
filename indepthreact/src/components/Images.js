@@ -46,20 +46,25 @@ function ShowImage(){
       hasMore={true}
       className="flex flex-wrap "
       >
-      { images.map((img,index) =>(
-  <SingleImage image={img}
-   removeImage={removeImage} 
-   index={index} 
- key={index}
- 
- />
- ))};
+
+ {images.map((img, index) => (
+          <SingleImage
+            image={img.urls.regular}
+            handleRemove={removeImage}
+            index={index}
+            key={index}
+          />
+        ))}
       </InfiniteScroll>
  ) 
 }
 
 function handleInput(e) {
-     setSearch(e.target.value);
+     const text=e.target.value;
+     setTimeout(() => {
+          setSearch(text);
+     }, 1000);
+    
 }
      
  

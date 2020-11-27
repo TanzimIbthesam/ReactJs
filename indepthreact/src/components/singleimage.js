@@ -20,7 +20,7 @@ export default function SingleImage({index,image,removeImage}) {
                             isHovering ===index ? "" : "hidden"
                              }` } onClick={()=>removeImage(index)}
                              ></i>
-                            <img src={image.urls.full} width="100%" height="auto" className="" alt="NewImage"  />
+                            <img src={image} width="100%" height="auto" className="" alt="NewImage"  />
                          
                    </div>
                    </div>
