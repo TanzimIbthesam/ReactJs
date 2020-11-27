@@ -22,11 +22,9 @@ Axios.get(
       `${api}/${url}client_id=${secretkey}&page=${page}`
     )
           .then((response) => {
-            if(searchTerm===null){
-              fetchRandomPage(response)
-            }else{
-              fetchSearch(response);
-            }
+            searchTerm===null  ? fetchRandomPage(response) :  fetchSearch(response);
+             
+           
        
          setLoading(false);
       
@@ -37,13 +35,9 @@ Axios.get(
   }
      
  function fetchSearch(response) {
- if(page>1){
-                 setImage([...images,...response.data.results]);
+ (page>1) ? setImage([...images,...response.data.results]) :   setImage([...response.data.results]);
      
-        }else{
-           setImage([...response.data.results]);
-          
-        }
+        
    
  }   
  
