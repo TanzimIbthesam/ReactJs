@@ -9,8 +9,13 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 export default function Images() {
   const [page, setPage] = useState(1);
-   const [images,setImage,errors,loading]=useFetchImage(page);
- 
+  const [searchTerm, setSearch] = useState(null);
+   const [images,setImage,errors,loading]=useFetchImage(
+        page,
+        searchTerm
+        
+        );
+   
 
 
 
@@ -53,6 +58,9 @@ function ShowImage(){
  ) 
 }
 
+function handleInput(e) {
+     setSearch(e.target.value);
+}
      
  
     
@@ -64,8 +72,15 @@ function ShowImage(){
 
     return (
         <div>
-        <div className=" ">
-        
+        <div>
+         <input 
+         type="text" 
+         
+         className="w-full py-1 border-2 border-gray-300"
+         placeholder="Search your images here"
+         onChange={handleInput}
+         
+         ></input>
           
                 
                  {
