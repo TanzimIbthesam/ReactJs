@@ -1,24 +1,26 @@
 
 import './App.css';
-import Navbar from './Navbar'
-function App() {
 
+function App() {
+     const handleClick=()=>{
+        console.log("Clicked");
+     }
   const name='Tanzim';
+  const changeName=(name)=>{
+    console.log(`The changed name is ${name}`)
+
+  }
+  const target=(e)=>{
+    console.log(e.target);
+  }
   const age=25;
   const link='https://www.facebook.com/';
   return (
     <div className="App">
-             <Navbar />
-           <p class="blue">Hello World-{name} and age is {age}</p>
-           {/* Dynamic styling */}
-           <button style={{
-             backgroundColor:"green",
-             color:"white",
-             padding:"10px 40px"
-           }}>Send</button>
-           <p>{Math.random()*10}</p>
-           <p>{['Apple','Mango','Jackfruit']}</p>
-           <a href={link} >Facebook</a>
+            <button onClick={handleClick}>Handle Click</button>
+            {/* Wrong way it fires or renders directly from the start */}
+           <button onClick={()=>{changeName("Tanzim Ibthesam")}}>Change Name</button>
+           <button onClick={target}>Target</button>
     </div>
   );
 }
