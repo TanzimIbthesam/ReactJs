@@ -1,17 +1,15 @@
 
-import { useState } from 'react';
-const Home=()=>{
-   const [blogs,allBlogs]=useState([
-       {id:1,title:'Hello First Post',description:'Description of first post'},
-       {id:2,title:'Hello Second Post',description:'Description of secondpost'},
-    ]);
-
+// import { useState } from 'react';
+const Home=({blogs})=>{
  
+// const blogs=props.blogs;
+//  console.log(blogs);
         return (
             <div className="">
                 {
                     blogs.map((blog)=>(
                           <div  key={blog.id}>
+                              Title-{blog.title}
                                 Description-{blog.description}
                           </div>
                     ))

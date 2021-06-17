@@ -4,22 +4,17 @@ import './App.css';
 import Home from './Home'
 function App() {
     
-     const [name,changedName]=useState("Tanzim");
-     const [age,changedAge]=useState(25);
-     const  changeName=()=>{
-       changedName("Tanzim Ibthesam");
-     }
-     const changeAge=()=>{
-          changedAge(30)
-     }
+     
+     const [blogs,allBlogs]=useState([
+      {id:1,title:'Hello First Post',description:'Description of first post'},
+      {id:2,title:'Hello Second Post',description:'Description of secondpost'},
+   ]);
  
   return (
     
     <div className="App">
-       <Home />
-            <button onClick={changeName}>Change Name</button>
-            <button onClick={changeAge}>Change Age</button>
-            <p>His name is {name} and age is {age}</p>
+       <Home blogs={blogs}/>
+           
     </div>
   );
 }
