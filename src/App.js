@@ -20,7 +20,7 @@ function App() {
             <button onClick={handleClick}>Handle Click</button>
             {/* Wrong way it fires or renders directly from the start */}
            <button onClick={()=>{changeName("Tanzim Ibthesam")}}>Change Name</button>
-           <button onClick={target}>Target</button>
+           <button onClick={target}>Targettted</button>
     </div>
   );
 }
