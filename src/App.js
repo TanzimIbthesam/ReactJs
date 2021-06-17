@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import './App.css';
-
+import Home from './Home'
 function App() {
     
      const [name,changedName]=useState("Tanzim");
@@ -14,7 +14,9 @@ function App() {
      }
  
   return (
+    
     <div className="App">
+       <Home />
             <button onClick={changeName}>Change Name</button>
             <button onClick={changeAge}>Change Age</button>
             <p>His name is {name} and age is {age}</p>
