@@ -2,7 +2,7 @@ const Navbar=()=> {
   
     return (
       <div className="App">
-            <a href="/">Hello</a>
+            <a class="blue" href="/">Hello</a>
       </div>
     );
   }

@@ -9,7 +9,13 @@ function App() {
   return (
     <div className="App">
              <Navbar />
-           <p>Hello World-{name} and age is {age}</p>
+           <p class="blue">Hello World-{name} and age is {age}</p>
+           {/* Dynamic styling */}
+           <button style={{
+             backgroundColor:"green",
+             color:"white",
+             padding:"10px 40px"
+           }}>Send</button>
            <p>{Math.random()*10}</p>
            <p>{['Apple','Mango','Jackfruit']}</p>
            <a href={link} >Facebook</a>
