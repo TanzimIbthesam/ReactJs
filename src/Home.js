@@ -14,6 +14,8 @@ const [blogs,setBlogs ]=useState([
          const newBlogs=blogs.filter(blog=>blog.id !== id)
           setBlogs(newBlogs)
  }
+ const [loading,isLoading]=useState(true);
+ 
  useEffect(()=>{
       console.log("Use Effect");
     //  console.log(name);
@@ -21,12 +23,13 @@ const [blogs,setBlogs ]=useState([
     .then((res)=>res.json())
     .then(data=>{
         setBlogs(data)
+        isLoading(false)
     })
  },[])
         return (
             <div className="">
                  <Blogs blogs={blogs} title="All blogs" handleDelete={handleDelete}/> 
-                   
+                   {loading && <div>Loading</div>}
                    
                    
             </div>
