@@ -1,5 +1,5 @@
 
- import { useState } from 'react';
+ import { useState,useEffect } from 'react';
 import Blogs from './Blogs'
 const Home=()=>{
 
@@ -14,6 +14,9 @@ const [blogs,setBlogs ]=useState([
          const newBlogs=blogs.filter(blog=>blog.id !== id)
           setBlogs(newBlogs)
  }
+ useEffect(()=>{
+     console.log("Use Effect");
+ },[])
         return (
             <div className="">
                   
