@@ -1,5 +1,5 @@
-const Blogs=({blogs,title})=>{
- 
+const Blogs=({blogs,title,handleDelete})=>{
+
     // const blogs=props.blogs;
     //  console.log(blogs);
             return (
@@ -11,10 +11,12 @@ const Blogs=({blogs,title})=>{
                               <div  key={blog.id}>
                                   Title-{blog.title}
                                     Description-{blog.description}
+                                    <button onClick={()=>handleDelete(blog.id)}>Delete</button>    
                               </div>
                         ))
+                       
                     }
-    
+                     
                 </div>
               );
     
