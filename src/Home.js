@@ -17,13 +17,14 @@ const [blogs,setBlogs ]=useState([
  useEffect(()=>{
      console.log("Use Effect");
      console.log(name);
- },[name])
+ },)
         return (
             <div className="">
                   
                    <Blogs blogs={blogs} title="All blogs" handleDelete={handleDelete}/>
                    <button onClick={()=>setName('Tanzim Ibthesam')}>Change Name</button>
                     The name is-{name}
+                    <button onClick={()=>console.log('Click')}>Random Click</button>
             </div>
          
           );

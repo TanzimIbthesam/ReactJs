@@ -1,0 +1,10 @@
+{
+    "blogs":[
+        {"id":1,"title":"Hello First Post","description":"Description of first post","author":"John"},
+        {"id":2,"title":"Hello Second Post","description":"Description of first post","author":"John"},
+        {"id":3,"title":"Hello First Post","description":"Description of first post","author":"Richard "},
+        {"id":4,"title":"Hello First Post","description":"Description of first post","author":"John"}
+      
+     ]
+    
+}
