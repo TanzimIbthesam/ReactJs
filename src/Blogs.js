@@ -1,5 +1,8 @@
-const Blogs=({blogs,title,handleDelete})=>{
 
+
+const Blogs=({blogs,title,handleDelete})=>{
+   
+   
     // const blogs=props.blogs;
     //  console.log(blogs);
             return (

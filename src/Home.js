@@ -1,6 +1,6 @@
-
- import { useState,useEffect } from 'react';
+import { useState,useEffect } from 'react';
 import Blogs from './Blogs'
+import axios from 'axios';
 const Home=()=>{
 
 const [blogs,setBlogs ]=useState([
@@ -10,21 +10,30 @@ const [blogs,setBlogs ]=useState([
     // {id:4,title:'Hello Second Post',description:'Description of fourth post',author:'Richard'}
 
  ]);
+  const [loading,isLoading]=useState(true);
+ 
  const handleDelete=(id)=>{
          const newBlogs=blogs.filter(blog=>blog.id !== id)
           setBlogs(newBlogs)
  }
- const [loading,isLoading]=useState(true);
- 
+
  useEffect(()=>{
       console.log("Use Effect");
     //  console.log(name);
-    fetch('http://localhost:8000/blogs')
-    .then((res)=>res.json())
-    .then(data=>{
-        setBlogs(data)
+    // fetch('http://localhost:8000/blogs')
+    // .then((res)=>res.json())
+    // .then(data=>{
+    //     setBlogs(data)
+    //     isLoading(false)
+    // })
+    axios.get(`http://localhost:8000/blogs`)
+      .then(res => {
+        setBlogs(res.data)
         isLoading(false)
-    })
+      })
+      .catch(err=>{
+          console.log(err)
+      })
  },[])
         return (
             <div className="">
