@@ -14,7 +14,7 @@ const Blogs=({blogs,title,handleDelete})=>{
                               <div  key={blog.id}>
                                   Title-{blog.title}
                                     Description-{blog.description}
-                                    <button onClick={()=>handleDelete(blog.id)}>Delete</button>    
+                                       
                               </div>
                         ))
                        
