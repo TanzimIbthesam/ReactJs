@@ -3,7 +3,7 @@ import Home from './Home'
 import Create from './Create'
  import Navbar from './Navbar'
  import BlogDetails from './BlogDetails'
-
+import NotFound from './NotFound'
 const AllRouter=()=>{
     return(
         <Router>
@@ -19,6 +19,9 @@ const AllRouter=()=>{
               </Route>
               <Route path="/blogdetails/:id">
                 <BlogDetails />
+              </Route>
+              <Route path="*">
+                   <NotFound />
               </Route>
             </Switch>
           </div>

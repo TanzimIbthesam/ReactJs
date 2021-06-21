@@ -1,6 +1,7 @@
 import axios from "axios";
 import {useParams} from "react-router-dom"
 import useFetch from "./useFetch"
+import { useHistory } from "react-router-dom";
 
 
 const BlogDetails=()=>{
@@ -11,6 +12,7 @@ const BlogDetails=()=>{
        axios.delete('http://localhost:8000/blogs/'+id)
        .then(res=>{
            console.log(res);
+           useHistory.push('/')
        })
     }
     return(
