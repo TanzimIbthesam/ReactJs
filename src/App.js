@@ -1,14 +1,13 @@
-
-
 import './App.css';
-import Home from './Home'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
+
+import AllRouter from './AllRouter';
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
   
-} from "react-router-dom";
-function App() {
+// } from "react-router-dom";
+function App() { 
     
      
   
@@ -16,21 +15,11 @@ function App() {
   return (
    
     <div className="App">
-      <Router>
-      <Switch>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-        
-        
-     
-       
-           
-        </Router>
+     <AllRouter />
         </div>
   );
   
 }
 
 export default App;
+
