@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 const Blogs=({blogs,title,handleDelete})=>{
    
@@ -12,8 +12,9 @@ const Blogs=({blogs,title,handleDelete})=>{
                         
                         blogs.map((blog)=>(
                               <div  key={blog.id}>
-                                  Title-{blog.title}
-                                    Description-{blog.description}
+                                  <Link to={`/blogdetails/${blog.id}`}>Title-{blog.title}</Link>
+                                  
+                                 
                                        
                               </div>
                         ))
