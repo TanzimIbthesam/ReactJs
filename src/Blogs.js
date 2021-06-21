@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
-const Blogs=({blogs,title,handleDelete})=>{
-   
+
+const Blogs=({blogs,title})=>{
+
    
     // const blogs=props.blogs;
     //  console.log(blogs);
