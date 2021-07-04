@@ -1,17 +1,18 @@
 
 import './App.css';
-import Interval from './Interval';
+
+import Posts from './Posts';
 
 
-// import DisplayMouse from './DisplayMouse';
+
 
 
 
 function App() {
   return (
     <div className="App">
-     {/* <DisplayMouse /> */}
-     <Interval />
+    
+     <Posts />
     </div>
   );
 }
