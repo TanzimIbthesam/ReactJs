@@ -2,18 +2,26 @@ import { useState } from "react"
 
 
 const Form=()=>{
-    const [name,setName]=useState({firstName:'',lastName:''})
+    const [posts,setPosts]=useState([]);
+    const addPost=(e)=>{
+        e.preventDefault();
+        setPosts([...posts,{
+            id:posts.length,
+            name:'Tanzim'
+        }])
+    }
     return (
         <div>
             <form>
-                {/* <input type="text" onChange={e=>setName({firstName:e.target.value})} /> <br />
-                <input type="text" onChange={e=>setName({lastName:e.target.value})} /> */}
-                <input type="text" onChange={e=>setName({...name,firstName:e.target.value})} /> <br />
-                <input type="text" onChange={e=>setName({...name,lastName:e.target.value})} />
-                 Your firstname is {name.firstName}
-                 your lastname is {name.lastName}
-                {/* <h1>{JSON.stringify(name)}</h1> */}
+                 
+                 <button onClick={addPost}>Add Post</button>
             </form>
+            {
+                 posts.map(post=>(
+                     <div key={post.id}>{post.name}</div>
+                 ))
+            }
+            
         </div>
     )
 }
