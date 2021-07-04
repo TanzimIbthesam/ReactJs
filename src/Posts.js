@@ -7,14 +7,19 @@ const Posts=()=>{
     // const [posts,SetPosts]=useState([]);
     //fetching single post
     const [post,SetPost]=useState({});
-    const [id,setId]=useState(1)
+    const [id,setId]=useState(1);
+    const [clickId,getidfrombuttonClick]=useState(0);
 
     useEffect(()=>{
-        axios.get(`https://jsonplaceholder.typicode.com/todos/${id}`)
+        axios.get(`https://jsonplaceholder.typicode.com/todos/${clickId}`)
         .then(res=>SetPost(res.data))
         .catch(err=>console.log(err))
 
-    },[post])
+    },[clickId])
+
+    const handleClick=()=>{
+        getidfrombuttonClick(id)
+    }
    
     
     
@@ -22,6 +27,7 @@ const Posts=()=>{
     return (
         <div>
             <input type="text" value={id} onChange={(e)=>setId(e.target.value)} />
+            <button onClick={handleClick}>Fetch Post</button>
             {post.title}
             {/* {posts.map(post=>(
                 <div> 
