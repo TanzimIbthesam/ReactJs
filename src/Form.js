@@ -1,8 +1,9 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 const Form=()=>{
     const [posts,setPosts]=useState([]);
+    const [name,Setname]=useState('');
     const addPost=(e)=>{
         e.preventDefault();
         setPosts([...posts,{
@@ -10,10 +11,18 @@ const Form=()=>{
             name:'Tanzim'
         }])
     }
+//    useEffect(()=>{
+//        console.log("Use Effect");
+//    })
+   //To stop updating on every render
+   useEffect(()=>{
+       console.log("Use Effect");
+   },[name])
+  
     return (
         <div>
             <form>
-                 
+                 <input type="text" onChange={e=>Setname(e.target.value)} />
                  <button onClick={addPost}>Add Post</button>
             </form>
             {
@@ -21,6 +30,7 @@ const Form=()=>{
                      <div key={post.id}>{post.name}</div>
                  ))
             }
+            {name}
             
         </div>
     )
