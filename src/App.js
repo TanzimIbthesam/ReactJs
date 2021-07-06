@@ -1,18 +1,21 @@
 
 import './App.css';
+import ComponentC from './ComponentC';
+import React,{createContext} from 'react';
 
-import Posts from './Posts';
-
-
-
-
-
+export const UserContext = createContext();
+export const ChannelContext = createContext()
 
 function App() {
   return (
     <div className="App">
-    
-     <Posts />
+    <UserContext.Provider value={'Tanzim101'}>
+    <ChannelContext.Provider value={'Codevolution'}>
+					<ComponentC />
+				</ChannelContext.Provider>
+    </UserContext.Provider>
+     
+   
     </div>
   );
 }
