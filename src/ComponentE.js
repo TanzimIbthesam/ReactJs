@@ -1,20 +1,12 @@
 
-import {React} from 'react';
+import {React, useContext} from 'react';
 import { UserContext, ChannelContext } from './App'
 const ComponentE=()=>{
+    const user=useContext(UserContext);
+    const channel=useContext(ChannelContext);
     return(
         <div>
-			<UserContext.Consumer>
-				{user => {
-					return (
-						<ChannelContext.Consumer>
-							{channel => {
-                return <div>User context value {user}, channel context value {channel}</div>
-							}}
-						</ChannelContext.Consumer>
-					)
-				}}
-			</UserContext.Consumer>
+			{user} and {channel}
 		</div>
     )
 }
