@@ -8,55 +8,33 @@ import './App.css';
 
 function App() {
     // const [name,setName]=useState("Tanzim");
-    const [print,setPrint]=useState(false)
-  // function updateName(){
-  //   //  setName("Tanzim Ibthesam")
-  //    console.log("Clicked");
-
-  //  }
-
-  // function getData(e){
-  //    e.preventDefault();
-  //     setName(e.target.value)
-  // }
-  //  function setPrintValue(e){
-  //   e.preventDefault();
-  //   setPrint(true)
-  //  }
- function showData(e){
-   e.preventDefault()
-   setPrint(true)
+    const [text,setText]=useState("");
+    const [options,setOptions]=useState("");
+    const [check,setCheck]=useState("")
+ const addProfile=(e)=>{
+ e.preventDefault()
+ console.log(text,options,check);
  }
- function hideData(e){
-   e.preventDeafult()
-   setPrint(false)
-   
- }
-  function toggle(e){
-    e.preventDefault()
-    setPrint(!print)
-  }
-  
   return (
     <div className="App">
-       {print ?
-        <h1>Hello World</h1>
-       :null}
-     
-       <form>
-        
-         
-         
-         <button onClick={(e)=>showData(e)}>Show</button>
-         <button onClick={(e)=>hideData(e)}>Hide</button>
-         <button onClick={(e)=>toggle(e)}>Toggle</button>
-         
-         
+       <form onSubmit={addProfile}>
+             <input type="text" onChange={(e)=>setText(e.target.value)}></input><br></br>
+             {/* <select onChange={(e)=>setOptions(e.target.value)}>
+               <options>Web designer</options>
+               <options>Web developer</options>
+               
+             </select><br></br> */}
+             <select onChange={(e)=>setOptions(e.target.value)}>
+          <option >Volvo</option>
+           <option >Saab</option>
+       <option >Mercedes</option>
+        <option value="audi">Audi</option>
+</select>
+            <input type="checkbox" onChange={(e)=>setCheck(e.target.value)} ></input><br></br>
+            <p>Are you sure you agree with terms and conditions?</p>
+            
+            <button>SUBMIT</button>
        </form>
-       {/* <ClassUser fullName="Tanzim Ibthesam" updateName={updateName} />  */}
-      {/* <FunctionalUser name="Tanzim" updateName={updateName} /> */}
-      {/* <h1>{name}</h1>
-     <button onClick={updateName}>Change Name</button> */}
     </div>
   );
 }
