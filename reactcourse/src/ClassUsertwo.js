@@ -8,7 +8,8 @@ constructor(props){
     // console.log(props);
     this.state={
         // name:"Tanzim",
-        count:0
+        count:0,
+       
     }
      
 } 
@@ -16,23 +17,28 @@ constructor(props){
 //       this.setState({name:'Tanzim Ibthesam'})
 //   }
   updateCount(){
-      this.setState({count:1})
+      this.setState({count:this.state.count+1})
   }
    componentDidMount(){
        console.log("component did mount");
    }
   
-//    componentDidUpdate(){
-//        console.log("Component did update");
-//    }
-   componentDidUpdate(prevState){
-       console.log("Component did update",prevState.count,this.state.count);
-       if(prevState.count===this.state.count){
-           console.log("data already same");
-           this.setState({count:this.state.count+1})
-       }
-       //if done here then there will be infinite loop 
-    //    this.setState({count:this.state.count+1})
+   componentDidUpdate(){
+       console.log("Component did update");
+   }
+   shouldComponentUpdate(){
+       console.log("Should component update",this.state.count);
+    //    return true;
+    //If we want to stop counting when value of count is greater than 5 
+    if(this.state.count>5){
+        return false
+    }else{
+        return true
+    }
+    
+   }
+   componentWillUnmount(){
+       console.log("Component Unmounted");
    }
 
   render(){
@@ -43,6 +49,7 @@ constructor(props){
               Count-{this.state.count}
               {/* <button onClick={()=>this.updateName()}>Update name</button> */}
               <button onClick={()=>this.updateCount()}>Update count</button>
+               
           </div>
       )
   }
