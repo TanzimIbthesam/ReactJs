@@ -1,31 +1,56 @@
-
-
-
-import React, {  useState }  from 'react';
+import React from 'react';
 import './App.css';
-import PropsUseEffect from './PropsUseEffect';
+// import PropsUseEffect from './PropsUseEffect';
+ import { Table} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'
 // import ClassUserTwo from './ClassUsertwo';
 // import ClassUserTwo from './ClassUsertwo';
 // import Test from './Test';
 
-const App=()=>{
-  const [count, setCount] =useState(0);
-  const [increaseCount,setIncreaseCount]=useState(0);
-  // useEffect(()=>{
-  //   console.log("Clicked");
-  // },[increaseCount])
-  function addClick(){
-    setCount(count+1)
-  }
-  function increase(){
-    setIncreaseCount(increaseCount+1)
-  }
+
+
+function App(){
+  // const students=['John','Ricky','Tim'];
+   
+   //We cant print for loop inside map cause inside return  for loop doesnt work
+  const students=[
+    {name:'John',age:13,standard:"7"},
+    {name:'John',age:13,standard:"7"},
+    {name:'John',age:23,standard:"7"},
+  ];
      return (
-       <div>
-          <button onClick={addClick}>Increase Count</button>
-          <button onClick={increase}>Increase Count</button>
-          <PropsUseEffect count={count} increaseCount={increaseCount} />
-       </div>
+     
+      <div className="App">
+     <Table striped bordered hover>
+  <thead>
+    <tr>
+      
+      <th>Name</th>
+      <th>Age</th>
+      <th>Standard</th>
+    </tr>
+  </thead>
+  <tbody>
+  {
+        students.map((student,index)=>
+        <tr key={index}>
+             <td>{student.name}</td>
+             <td>{student.age}</td>
+             <td>{student.standard}</td>
+        </tr>
+       
+        )
+      }
+    
+  
+     
+  </tbody>
+</Table>
+      </div>
+    
+    
+    
+  
      )
  
 }
