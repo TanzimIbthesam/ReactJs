@@ -34,16 +34,16 @@ function App(){
   ];
      return (
      
-      <React.Fragment>
+      <div className="App">
     
   {
         students.map((student,index)=>
-        <>
+        <div key={index}>
             <User student={student} index={index}/>
              
              
              
-           </>    
+           </div>    
          
         )
       }
@@ -52,7 +52,7 @@ function App(){
      
   
 
-      </React.Fragment>
+      </div>
     
     
     
