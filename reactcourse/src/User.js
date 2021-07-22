@@ -1,20 +1,8 @@
 const User=(props)=>{
-
+    const data={name:"Tanzim",age:25,profession:"Business"}
     return(
         <div>
-            Sl-{props.index+1}
-           User Student-{props.student.name}
-            Age  Age-{props.student.age}
-            Standard-{props.student.standard}
-             {
-                 props.student.address.map((stu,i)=>
-                 <div key={i}>
-                 <div>{stu.city}</div>
-                 <div>{stu.house}</div>
-                 <div>{stu.city}</div>
-                 </div>
-                 )
-             }
+           <button onClick={()=>props.showName(data)}>Click</button>
         </div>
     )
 

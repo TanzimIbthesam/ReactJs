@@ -15,39 +15,15 @@ function App(){
   // const students=['John','Ricky','Tim'];
    
    //We cant print for loop inside map cause inside return  for loop doesnt work
-  const students=[
-    {name:'John',age:13,standard:"7",address:[
-      {
-        city:"Dhaka",house:"4",area:"Gulshan"
+     const showName=(data)=>{
+       console.log(data);
      }
-    ]},
-    {name:'John',age:13,standard:"7",address:[
-      {
-        city:"Dhaka",house:"5",area:"Gulshan"
-     }
-    ]},
-    {name:'John',age:23,standard:"7",address:[
-      {
-        city:"Dhaka",house:"6",area:"Gulshan"
-     }
-    ]},
-  ];
      return (
      
       <div className="App">
     
-  {
-        students.map((student,index)=>
-        <div key={index}>
-            <User student={student} index={index}/>
-             
-             
-             
-           </div>    
-         
-        )
-      }
-    
+
+      <User showName={showName} />
   
      
   
