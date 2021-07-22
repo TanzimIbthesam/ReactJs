@@ -1,11 +1,20 @@
-const User=(props)=>{
-    const data={name:"Tanzim",age:25,profession:"Business"}
-    return(
-        <div>
-           <button onClick={()=>props.showName(data)}>Click</button>
-        </div>
-    )
+import React from "react";
 
-}
-
+class User extends React.PureComponent{
+    constructor(props){
+        super()
+        console.log(props);
+      }
+       render(){
+         console.log("Rerender");
+         return(
+           <>
+                
+               <p>{this.props.count}</p>
+           </>
+         )
+       }
+    
+    
+    }
 export default User;
