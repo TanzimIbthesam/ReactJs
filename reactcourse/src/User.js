@@ -11,7 +11,7 @@ const User=(props)=>{
                  <div>
                  <div>{stu.city}</div>
                  <div>{stu.house}</div>
-                 <div>{stu.area}</div>
+                 <div>{stu.city}</div>
                  </div>
                  )
              }
