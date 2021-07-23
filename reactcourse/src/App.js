@@ -1,9 +1,9 @@
-import React, { createRef} from 'react';
+import React, {  useState} from 'react';
 import './App.css';
 // import PropsUseEffect from './PropsUseEffect';
  
 import 'bootstrap/dist/css/bootstrap.min.css'
-import User from './User';
+
 
 
 //  import User from './User';
@@ -13,15 +13,12 @@ import User from './User';
 // import Test from './Test';
 
 function App(){
-  const inputRef=createRef(null);
-  const hookRef=()=>{
-     inputRef.current.value=1000
-  }
+   const [val,setValue]=useState(1000);
+
   return(
     <>
-     
-     <button onClick={hookRef}>Hook ref</button>
-     <User ref={inputRef}/>
+      <input type="text" defaultValue="000" value={val} onChange={(e)=>setValue(e.target.value)} />
+       {val}
     </>
   )
 }
