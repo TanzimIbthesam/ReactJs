@@ -3,6 +3,7 @@ import './App.css';
 // import PropsUseEffect from './PropsUseEffect';
  
 import 'bootstrap/dist/css/bootstrap.min.css'
+import User from './User';
 
 
 //  import User from './User';
@@ -12,17 +13,15 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 // import Test from './Test';
 
 function App(){
-  const inputRef=createRef();
+  const inputRef=createRef(null);
   const hookRef=()=>{
-     
-      inputRef.current.style="background:black;color:white"
-      inputRef.current.focus()
-      // inputRef.current.style="color:white"
+     inputRef.current.value=1000
   }
   return(
     <>
-     <input type="text" ref={inputRef}  />
+     
      <button onClick={hookRef}>Hook ref</button>
+     <User ref={inputRef}/>
     </>
   )
 }

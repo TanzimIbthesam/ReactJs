@@ -1,20 +1,11 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-class User extends React.PureComponent{
-    constructor(props){
-        super()
-        console.log(props);
-      }
-       render(){
-         console.log("Rerender");
-         return(
-           <>
-                
-               <p>{this.props.count}</p>
-           </>
-         )
-       }
-    
-    
-    }
-export default User;
+const User=(props,inputRef)=>{
+ return (
+<>
+<input ref={inputRef} />
+</>
+ )
+
+}
+export default forwardRef(User);
