@@ -1,4 +1,4 @@
-import React, {  useState} from 'react';
+import React, { useRef } from 'react';
 import './App.css';
 // import PropsUseEffect from './PropsUseEffect';
  
@@ -13,13 +13,32 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 // import Test from './Test';
 
 function App(){
-   const [val,setValue]=useState(1000);
-
+  
+ 
+  let inputOne=useRef(null)
+   const submitForm=(e)=>{
+    e.preventDefault()
+    
+    let input=document.getElementById("name").value
+    
+    console.log(input,inputOne.current.value);
+    
+   }
   return(
-    <>
-      <input type="text" defaultValue="000" value={val} onChange={(e)=>setValue(e.target.value)} />
-       {val}
-    </>
+    <div>
+        <form onSubmit={submitForm}>
+        <input type="text" id="name"/><br>
+        </br>
+        <input type="text" ref={inputOne}/><br>
+        </br>
+        
+       
+        
+        <button>Send</button>
+        </form>
+        
+      
+    </div>
   )
 }
 
