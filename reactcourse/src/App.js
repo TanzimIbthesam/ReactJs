@@ -42,7 +42,7 @@ function CompTwo(props){
   return(
     <> 
 
-        <h1>First Component-{props.name}-</h1>
+        <h1>Second Component-{props.name}</h1>
         <div style={{backgroundColor:"yellow",color:"white",width:"50%",margin:"0 auto"}}><props.cmp />Yellow</div>
     </>
    
@@ -52,7 +52,7 @@ function CompThree(props){
   return(
     <> 
 
-        <h1>First Component-{props.name}</h1>
+        <h1>Third Component-{props.name}</h1>
         <div style={{backgroundColor:"green",color:"white",width:"50%",margin:"0 auto"}}><props.cmp />Green</div>
     </>
    
