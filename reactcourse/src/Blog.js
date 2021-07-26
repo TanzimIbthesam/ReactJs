@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 
+
 const Blog=()=>{
     let posts=[
         {id:1,name:'Tanzim',profession:"Web Developer"},
@@ -20,6 +21,7 @@ const Blog=()=>{
                )
 
            }
+           
        </div>
    )
    

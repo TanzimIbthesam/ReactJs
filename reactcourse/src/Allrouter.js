@@ -2,19 +2,20 @@
 import { BrowserRouter as Router,Route,Switch } from "react-router-dom";
 import About from "./About";
 import Blog from "./Blog";
-import BlogDetails from "./BlogDetails";
-import Home from './Home';
+ import BlogDetails from "./BlogDetails";
+
 import Nav from './Nav';
 import PageNotFound from "./PagenotFound";
 
 const Allrouter=()=>{
     return(
         <div>
+            
              <Router>
-         <Nav />
+             <Nav />
          <Switch>
          <Route exact path="/">
-                 <Home />
+                 <Blog />
             </Route>
          <Route  path="/about">
                  <About />
@@ -25,15 +26,15 @@ const Allrouter=()=>{
          <Route path="/blog">
              <Blog />
          </Route>
-         {/* <Route path="/blog/:id">
-              <BlogDetails />
-            </Route> */}
+        
          <Route path="*">
              <PageNotFound />
          </Route>
          
          </Switch>
-         <Route path="/blog/:id" ><BlogDetails /></Route>
+         <Route path="/blog/:id">
+              <BlogDetails />
+            </Route> 
         
            </Router>
         </div>
