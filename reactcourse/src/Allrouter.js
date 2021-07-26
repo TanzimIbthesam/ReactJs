@@ -5,11 +5,11 @@ import Blog from "./Blog";
  import BlogDetails from "./BlogDetails";
 
 import Nav from './Nav';
-import PageNotFound from "./PagenotFound";
+// import PageNotFound from "./PagenotFound";
 
 const Allrouter=()=>{
     return(
-        <div>
+        
             
              <Router>
              <Nav />
@@ -26,18 +26,18 @@ const Allrouter=()=>{
          <Route path="/blog">
              <Blog />
          </Route>
-        
-         <Route path="*">
-             <PageNotFound />
-         </Route>
-         
-         </Switch>
          <Route path="/blog/:id">
               <BlogDetails />
             </Route> 
+            
+         {/* <Route path="*">
+             <PageNotFound />
+         </Route> */}
+         
+         </Switch>
         
            </Router>
-        </div>
+       
     )
 }  
 

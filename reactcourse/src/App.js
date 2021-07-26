@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 // import PropsUseEffect from './PropsUseEffect';
  
 import 'bootstrap/dist/css/bootstrap.min.css'
+
 // import BlogDetails from './BlogDetails';
 //  import { BrowserRouter as Router,Route,Link } from "react-router-dom";
-import Allrouter from './Allrouter';
+
 
 // import Home from './Home';
 // import Nav from './Nav';
@@ -14,15 +15,29 @@ import Allrouter from './Allrouter';
 
 
 function App(){
-  // let posts=[
-  //   {id:1,name:'Tanzim',profession:"Web Developer"},
-  //   {id:2,name:'Tanzim',profession:"Web Developer"}
-// ]
+  const [posts,SetPosts]=useState([]);
+  useEffect(()=>{
+      fetch('http://localhost:4000/blogs',{
+          method:"GET"
+      }).then(result=>result.json())
+      .then(res=>(SetPosts(res)))
+
+  },[])
+
   return(
     <> 
        <div>
+         
+           {
+             posts.map((post)=>
+             <>
+                {post.title}
+             </>
+             
+             
+             )
+           }
            
-           <Allrouter />
           
        </div>  
     </>
